@@ -1,8 +1,5 @@
 # basicWebpackPractice
-
-# restaurant-Page
-
-### setup webpack
+## setup webpack
 
 - `npm init -y`
 - `mkdir src`
@@ -72,8 +69,31 @@ touch /src/template.html
 touch /src/styles.css
 ```
 - add html boilerplate
-### start live preview 
+## start live preview 
 ``` bash
 npx webpack serve
 ```
 access page here [http://localhost:8080/](http://localhost:8080/)
+
+## deploy on github pages 
+- commit everything to the main branche 
+- create a deployement branch e.g.
+  ```bash
+  git branch gh-pages
+  ```
+- checkout to deployment branche & merge the main branche with gh-pages
+```bash
+git checkout gh-pages && git merge main --no-edit
+```
+- bundle the application local `ǹpx webpack` 
+-run the following commands
+```bash
+git add dist -f && git commit -m "Deployment commit"
+```
+```bash
+git subtree push --prefix dist origin gh-pages
+```
+```bash
+git checkout main
+```
+- in github pages select the deployment from the new branch and deploy the page 
